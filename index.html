@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64731c988c.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="searchContainer">
+            <div class="searchBar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search" placeholder="Search city">
+
+                <span class="err"></span>
+            </div>
+
+        </div>
+        <div class="displayWeather">
+            <div class="weatherContent ">
+                <div class="description">
+                    <div class="weatherDescription info">
+
+                    </div>
+                    <div class="weatherLogo"><i></i></div>
+                </div>
+                <div class="weatherLocation info"></div>
+                <div class="weatherDisplay">
+                    <div class="weatherTemperature info"></div>
+                    <div class="weatherInfo">
+                        <div class="feelsLike info"></div>
+                        <div class="windSpeed info"></div>
+                        <p class="humidity info"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="main.js" defer></script>
+</body>
+
+</html>
