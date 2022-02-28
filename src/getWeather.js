@@ -15,7 +15,7 @@ async function getWeather() {
 
 
 
-        console.log('fetching data...')
+
         const weatherData = await response.json();
 
         const celsius = await Math.round(weatherData.main.temp);
@@ -44,11 +44,11 @@ async function getWeather() {
         weatherLogo.appendChild(icon);
         animate();
         changeBg();
-        console.log(weatherData);
+
 
     } catch (er) {
 
-        alert('Invalid argument');
+        alert('Invalid city name');
         console.error(er);
     }
 }

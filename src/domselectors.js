@@ -9,10 +9,14 @@ const windSpeed = document.querySelector('.windSpeed')
 const humidity = document.querySelector('.humidity')
 const weatherLogo = document.querySelector('.weatherLogo');
 const container = document.querySelector('.container')
+const days = document.querySelectorAll('.day');
+const dayName = document.querySelectorAll('.dayName');
+const dayMaxTemp = document.querySelectorAll('.dayMaxTemp');
+const dayMinTemp = document.querySelectorAll('.dayMinTemp');
+const dayIcon = document.querySelectorAll('.dayIcon i');
 
 
 
 
 
-
-export { searchIcon, weatherLogo, search, weatherDescription, container, weatherLocation, weatherTemperature, error, feelsLike, windSpeed, humidity };
+export { days, dayName, dayMaxTemp, dayMinTemp, dayIcon, searchIcon, weatherLogo, search, weatherDescription, container, weatherLocation, weatherTemperature, error, feelsLike, windSpeed, humidity };

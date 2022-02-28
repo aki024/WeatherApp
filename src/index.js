@@ -1,9 +1,9 @@
 import './style.css';
-// import { searchIcon } from './domselectors';
-import { getWeather, eventListeners, weatherData, defaultWeather } from './getWeather';
+import { eventListeners, defaultWeather } from './getWeather';
+import { defaultWeekWeather } from './getWeeklyWeather';
 
-const searchIcon = document.querySelector('.fa-solid.fa-magnifying-glass');
+
 defaultWeather();
-
+defaultWeekWeather();
 
 eventListeners();
