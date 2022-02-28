@@ -14,9 +14,11 @@ const dayName = document.querySelectorAll('.dayName');
 const dayMaxTemp = document.querySelectorAll('.dayMaxTemp');
 const dayMinTemp = document.querySelectorAll('.dayMinTemp');
 const dayIcon = document.querySelectorAll('.dayIcon i');
+const nextWeek = document.querySelector('.nextWeek');
+const currentDayL = document.querySelector('.currentDay');
 
 
 
 
 
-export { days, dayName, dayMaxTemp, dayMinTemp, dayIcon, searchIcon, weatherLogo, search, weatherDescription, container, weatherLocation, weatherTemperature, error, feelsLike, windSpeed, humidity };
+export { currentDayL, nextWeek, days, dayName, dayMaxTemp, dayMinTemp, dayIcon, searchIcon, weatherLogo, search, weatherDescription, container, weatherLocation, weatherTemperature, error, feelsLike, windSpeed, humidity };

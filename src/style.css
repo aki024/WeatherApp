@@ -62,7 +62,6 @@
     display: grid;
     border-radius: 15px;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.274);
     grid-template-columns: repeat(7, 1fr);
     gap: 20px;
 }
@@ -75,6 +74,11 @@
 .day .dayMaxTemp,
 .day .dayIcon {
     font-size: 2rem;
+}
+
+.wd {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
 }
 
 .description {

@@ -1,10 +1,15 @@
 import { animate } from './animation';
 import { changeBg } from './backgroundChange';
-import { weatherLogo, feelsLike, windSpeed, humidity, search, weatherDescription, weatherLocation, weatherTemperature } from './domselectors';
+import { weatherLogo, feelsLike, windSpeed, humidity, search, weatherDescription, weatherLocation, weatherTemperature, currentDayL, searchIcon } from './domselectors';
 import { getWeeklyWeather } from './getWeeklyWeather';
 
 import { iconSet, iconSrc } from './weatherIcons';
-
+let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+let currentWeekDay = new Date();
+let currentDay;
+let currentDayString;
+currentDay = currentWeekDay.getDay();
+currentDayString = weekDays[currentDay];
 let storeData;
 
 async function getWeather() {
@@ -17,7 +22,7 @@ async function getWeather() {
 
 
         const weatherData = await response.json();
-
+        console.log(weatherData);
         const celsius = await Math.round(weatherData.main.temp);
         const cityName = await weatherData.name;
         const description = await weatherData.weather[0].main;
@@ -31,6 +36,7 @@ async function getWeather() {
         feelsLike.innerHTML = 'FEELS LIKE: ' + feelsLikeTemp + '℃';
         windSpeed.innerHTML = 'WIND: ' + speedOfWind + ' m/s';
         humidity.innerHTML = 'HUMIDITY: ' + humidityPercentage + '%';
+        currentDayL.innerHTML = currentDayString;
         storeData = await weatherData;
         const icon = document.querySelector('.weatherLogo i');
         icon.classList.remove('fa-solid');
@@ -44,8 +50,6 @@ async function getWeather() {
         weatherLogo.appendChild(icon);
         animate();
         changeBg();
-
-
     } catch (er) {
 
         alert('Invalid city name');
@@ -56,6 +60,12 @@ const eventListeners = () => {
     const searchIcon2 = document.querySelector('.fa-magnifying-glass')
     searchIcon2.addEventListener('click', getWeather);
     searchIcon2.addEventListener('click', getWeeklyWeather);
+    search.addEventListener('keyup', (e) => {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            searchIcon.click();
+        }
+    })
 }
 
 const defaultWeather = async() => {
@@ -82,6 +92,7 @@ const defaultWeather = async() => {
         feelsLike.innerHTML = 'FEELS LIKE: ' + feelsLikeTemp + '℃';
         windSpeed.innerHTML = 'WIND: ' + speedOfWind + ' m/s';
         humidity.innerHTML = 'HUMIDITY: ' + humidityPercentage + '%';
+        currentDayL.innerHTML = currentDayString;
         storeData = await weatherData;
         const icon = document.querySelector('.weatherLogo i');
         icon.classList.remove('fa-solid');

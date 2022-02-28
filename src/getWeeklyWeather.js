@@ -2,21 +2,23 @@ import { search, dayName, dayMaxTemp, dayMinTemp, dayIcon } from './domselectors
 import { dailyIconSet, dayIcons } from './weatherIcons';
 let currentDay;
 
+
 let arr3;
 let maxTemp;
 async function getWeeklyWeather() {
     try {
         let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${search.value},${search.value},${search.value}&appid=e082bdc54317ed290c9dc85f80fa8529`, {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search.value}&APPID=e082bdc54317ed290c9dc85f80fa8529&units=metric`, {
             mode: 'cors'
         })
         let currentWeekDay = new Date();
         currentDay = currentWeekDay.getDay();
-        const weatherData = await response.json();
 
-        const lon = await Math.round(weatherData[0].lon * 100) / 100;
-        const lat = await Math.round(weatherData[0].lat * 100) / 100;
+        const weatherData = await response.json();
+        console.log(weatherData);
+        const lon = await Math.round(weatherData.coord.lon * 100) / 100;
+        const lat = await Math.round(weatherData.coord.lat * 100) / 100;
 
 
 
@@ -24,12 +26,11 @@ async function getWeeklyWeather() {
             mode: 'cors'
         })
         const weekWeather = await weekResponse.json();
-        console.log(weekWeather);
+
         let arr1 = weekDays.splice(currentDay + 1, weekDays.length);
         let arr2 = weekDays.splice(0, currentDay + 1);
         arr3 = [].concat(arr1, arr2);
-        console.log(arr3);
-        console.log(weekDays);
+
         maxTemp = await weekWeather.daily;
 
         for (let i = 0; i < dayName.length; i++) {
@@ -51,15 +52,15 @@ const defaultWeekWeather = async() => {
     try {
         let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', ];
 
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=london&appid=e082bdc54317ed290c9dc85f80fa8529`, {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=london&APPID=e082bdc54317ed290c9dc85f80fa8529&units=metric`, {
             mode: 'cors'
         })
         let currentWeekDay = new Date();
         currentDay = currentWeekDay.getDay();
         const weatherData = await response.json();
 
-        const lon = await Math.round(weatherData[0].lon * 100) / 100;
-        const lat = await Math.round(weatherData[0].lat * 100) / 100;
+        const lon = await Math.round(weatherData.coord.lon * 100) / 100;
+        const lat = await Math.round(weatherData.coord.lat * 100) / 100;
 
 
 
@@ -91,4 +92,4 @@ const defaultWeekWeather = async() => {
 
 
 
-export { getWeeklyWeather, maxTemp, defaultWeekWeather };
+export { getWeeklyWeather, maxTemp, defaultWeekWeather, };
