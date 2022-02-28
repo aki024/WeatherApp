@@ -1,3 +1,9 @@
 # WeatherApp
 
-This is my first project using APIs it's pretty simple you write the location and the screen is populated by weather from that location
+This is my first project using APIs.
+
+It's a weather application
+
+Once you write a term in the search bar it displays weather for today and weather for the whole week.
+
+Enjoy :)

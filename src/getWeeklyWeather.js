@@ -16,7 +16,6 @@ async function getWeeklyWeather() {
         currentDay = currentWeekDay.getDay();
 
         const weatherData = await response.json();
-        console.log(weatherData);
         const lon = await Math.round(weatherData.coord.lon * 100) / 100;
         const lat = await Math.round(weatherData.coord.lat * 100) / 100;
 

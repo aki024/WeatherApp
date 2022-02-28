@@ -18,11 +18,7 @@ async function getWeather() {
             mode: 'cors'
         })
 
-
-
-
         const weatherData = await response.json();
-        console.log(weatherData);
         const celsius = await Math.round(weatherData.main.temp);
         const cityName = await weatherData.name;
         const description = await weatherData.weather[0].main;
@@ -50,6 +46,7 @@ async function getWeather() {
         weatherLogo.appendChild(icon);
         animate();
         changeBg();
+        search.value = '';
     } catch (er) {
 
         alert('Invalid city name');
